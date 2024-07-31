@@ -1,12 +1,10 @@
-const express = require("express");
+const express = require('express')
+const router = express.Router()
 const {
   renderProfile,
   renderJoin,
   renderMain,
 } = require("../controllers/page");
-const { renderDetail } = require("../controllers/community");
-
-const router = express.Router();
 
 router.use((req, res, next) => {
   res.locals.user = null;
@@ -21,7 +19,5 @@ router.get("/profile", renderProfile);
 router.get("/join", renderJoin);
 
 router.get("/", renderMain);
-
-router.get("/community/detail", renderDetail);
 
 module.exports = router;

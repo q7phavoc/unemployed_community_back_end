@@ -18,7 +18,7 @@ class Commnet extends Sequelize.Model {
         sequelize,
         timestamps: false,
         modelName: "Comment",
-        tableName: "comments2",
+        tableName: "comments",
         paranoid: false,
         charset: "utf8mb4",
         collate: "utf8mb4_general_ci",
