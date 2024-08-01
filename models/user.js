@@ -6,16 +6,23 @@ class User extends Sequelize.Model {
       {
         name: {
           type: Sequelize.STRING(20),
-          allowNull: false,
+          // allowNull: false,
           unique: true,
+        },
+        provider: {
+          type: Sequelize.STRING(255),
+          allowNull: false,
+        },
+        snsId: {
+          type: Sequelize.STRING(255),
         },
         age: {
           type: Sequelize.INTEGER.UNSIGNED,
-          allowNull: false,
+          // allowNull: false,
         },
         married: {
           type: Sequelize.BOOLEAN,
-          allowNull: false,
+          // allowNull: false,
         },
         comment: {
           type: Sequelize.TEXT,
