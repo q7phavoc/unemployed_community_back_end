@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 const passport = require("passport");
 const { sequelize } = require("./models");
 const passportConfig = require("./passport");
+const cors = require('cors');
 
 dotenv.config();
 const routes = require("./routes");
@@ -48,6 +49,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(cors());
 
 app.use("/", routes);
 
