@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { join, login, logout } = require("../controllers/auth");
+const { join, login, logout } = require("../controllers/user");
 const { isLoggedIn, isNotLoggedIn } = require("../middlewares");
 const passport = require("passport");
 

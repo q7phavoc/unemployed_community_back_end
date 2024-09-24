@@ -4,6 +4,16 @@ class User extends Sequelize.Model {
   static initiate(sequelize) {
     User.init(
       {
+        email: {
+          type: Sequelize.STRING(255),
+          // allowNull: false,
+          unique: true,
+        },
+        password: {
+          type: Sequelize.STRING(255),
+          allowNull: false,
+          // unique: true,
+        },
         name: {
           type: Sequelize.STRING(20),
           // allowNull: false,
@@ -13,20 +23,24 @@ class User extends Sequelize.Model {
           type: Sequelize.STRING(255),
           allowNull: false,
         },
-        snsId: {
+        sns_id: {
           type: Sequelize.STRING(255),
-        },
-        age: {
-          type: Sequelize.INTEGER.UNSIGNED,
-          // allowNull: false,
-        },
-        married: {
-          type: Sequelize.BOOLEAN,
-          // allowNull: false,
         },
         comment: {
           type: Sequelize.TEXT,
           allowNul: false,
+        },
+        interests: {
+          type: Sequelize.TEXT,
+          allowNul: false,
+        },
+        career_objective: {
+          type: Sequelize.TEXT,
+          allowNul: false,
+        },
+        resume_url: {
+          type: Sequelize.TEXT,
+          // allowNul: false,
         },
         created_at: {
           type: Sequelize.DATE,
@@ -38,7 +52,7 @@ class User extends Sequelize.Model {
         sequelize,
         timestamps: false,
         modelName: "User",
-        tableName: "users",
+        tableName: "user",
         paranoid: false,
         charset: "utf8",
         collate: "utf8_general_ci",
@@ -46,7 +60,7 @@ class User extends Sequelize.Model {
     );
   }
   static associate(db) {
-    db.User.hasMany(db.Comment, { foreignKey: "commenter", sourceKey: "id" });
+    // db.User.hasMany(db.Comment, { foreignKey: "commenter", sourceKey: "id" });
   }
 }
 
