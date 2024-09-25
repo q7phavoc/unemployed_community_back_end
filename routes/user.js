@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { join, login, logout } = require("../controllers/user");
+const { join, login, logout, checkSession } = require("../controllers/user");
 const { isLoggedIn, isNotLoggedIn } = require("../middlewares");
 const passport = require("passport");
 
@@ -12,11 +12,14 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/join", isNotLoggedIn, join);
+router.post("/join", isNotLoggedIn, join);
 
-router.get("/login", isNotLoggedIn, login);
+router.post("/login", isNotLoggedIn, login);
 
 router.get("/logout", isLoggedIn, logout);
+
+// 로그인 상태 확인
+router.get('/checkSession', checkSession);
 
 router.get(
   "/kakao",
